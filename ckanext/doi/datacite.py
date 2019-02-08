@@ -8,8 +8,6 @@ Copyright (c) 2013 'bens3'. All rights reserved.
 from pylons import config
 from paste.deploy.converters import asbool
 
-TEST_PREFIX = '10.5072'
-
 ENDPOINT = 'https://mds.datacite.org'
 TEST_ENDPOINT = 'https://mds.test.datacite.org'
 
@@ -25,10 +23,10 @@ def get_test_mode():
 def get_prefix():
     """
     Get the prefix to use for DOIs
-    @return: test prefix if we're in test mode, otherwise config prefix setting
+    @return: config prefix setting
     """
 
-    return TEST_PREFIX if get_test_mode() else config.get("ckanext.doi.prefix")
+    return config.get("ckanext.doi.prefix")
 
 
 def get_endpoint():
